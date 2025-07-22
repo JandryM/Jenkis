@@ -2,17 +2,11 @@ pipeline {
     agent any
 
     tools {
-        nodejs "Node24"       // Nombre que configuraste en Jenkins > Global Tool Configuration
-        dockerTool 'Dockertool'
+        nodejs "Node24" // Configura una instalación de Node.js en Jenkins
+        dockerTool 'Dockertool'  // Cambia el nombre de la herramienta según tu configuración en Jenkins
     }
 
     stages {
-        stage('Clonar Repositorio') {
-            steps {
-                checkout scm
-            }
-        }
-
         stage('Instalar Dependencias') {
             steps {
                 sh 'npm install'
